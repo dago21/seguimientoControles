@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/09/2017 09:21:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="py.gov.set.seguimientoControles.pojos.ProcesoPeriodos" table="proceso_periodos" schema="public" optimistic-lock="version">
+        <id name="idProcesoPeriodo" type="int">
+            <column name="id_proceso_periodo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="procesoCabecera" class="py.gov.set.seguimientoControles.pojos.ProcesoCabecera" fetch="select">
+            <column name="nro_proceso" not-null="true" />
+        </many-to-one>
+        <property name="codObligacion" type="java.lang.Integer">
+            <column name="cod_obligacion" />
+        </property>
+        <property name="obligacion" type="string">
+            <column name="obligacion" length="50" />
+        </property>
+        <property name="periodoFiscal" type="date">
+            <column name="periodo_fiscal" length="13" />
+        </property>
+    </class>
+</hibernate-mapping>

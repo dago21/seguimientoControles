@@ -1,0 +1,271 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30/08/2017, 09:03:49 AM
+    Author     : agomez
+*/
+
+body {
+	margin: 0px;
+        color:#333333;
+	font-size: 12px;
+        border: #cfcfcf;
+	font-family: Arial;
+	font-family: Arial, Verdana, Univers;
+	background-color:#444444;
+        background-image: url(./css-images/page_bkgd.jpg);
+
+	background-repeat: repeat-x;
+}
+
+.inputTextRequired {
+	background-color: #FBE6FB;
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #666666;
+	text-align: left;
+	width: auto;
+	height: auto;
+}
+
+
+h1 {
+	color: #4F6179;
+	font-size: 24px;
+	font-weight: normal;
+	margin: 3px 0px 25px 0px;
+}
+h2 { color: #333333; font-size: 14px; font-weight: normal; margin: 0px 0px 15px 0px; }
+
+a          { color: #ba7007; }
+a:visited  { color: #ba7007; }
+a:hover    { color: black; }
+
+
+.container {
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:#ffffff;
+  
+	
+	background-repeat: repeat;
+}
+
+
+/* BANNER AREA */
+.bannerArea {
+	width: 980px;height: 145px;
+	background-color: #4971a2;
+	
+	background-repeat: no-repeat;
+}
+
+
+
+.bannernav {
+	padding-top: 10px;
+	padding-right: 40px;
+	float: right;
+	color: white;
+	font-size: 10px;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+}
+
+.bannernav a {
+	color: white;
+	text-decoration: none;
+}
+.bannernav a:visited {
+	color: white;
+}
+.bannernav a:hover {
+	color: #ECBB7B;
+}
+
+.toplogo {
+	margin-left: 70px;
+	padding-top: 20px;
+}
+
+
+
+.content {
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	background-repeat: no-repeat;
+
+}
+
+
+/* LEFT NAVIGATION */
+
+
+.leftnavigation {
+	width: 192px;
+	margin: 70px 0px 0px 0px;
+	padding-left: 8px;
+	float: left;
+	list-style-type: none;
+}
+
+.leftnavigation a{
+	margin-left: 0px;
+	width: 156px;
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-right: 20px;
+	padding-bottom: 5px;
+	float: left;
+	color: #364957;
+	font-size: 10px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	background-image: url(./css-images/nav_normal.jpg);
+	background-repeat: repeat-x;
+	background-position: 0px 0px;
+	border-bottom: 1px solid #999;
+}
+
+.leftnavigation a:visited{
+	color: #364957;
+}
+.leftnavigation a:hover{
+	color: #ffffff;
+	background-image: url(./css-images/nav_down.jpg);
+}
+
+
+/* CONTENT AREA */
+
+.contentleft {
+	width: 440px;
+	padding-left: 30px;
+	padding-right: 20px;
+	float: left;
+	
+
+}
+
+.contentright {
+	padding-top: 55px;
+	float: left;
+	width: 210px;
+}
+
+.imageright {
+	margin-top: 10px;
+	margin-left: 10px;
+	float: right;	
+}
+.imageleft {
+	margin-right: 10px;
+	float: left;
+}
+
+
+/* FOOTER AREA */
+.footerArea {
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	
+  
+        
+	
+
+	
+	
+}
+
+.copyright {
+	border-top: solid;
+	border-color: #737a90;
+	border-width: 2px;
+	margin-left: 240px;
+	margin-right: 30px;
+	padding-top: 12px;
+	
+	color: #666666;
+	font-size: 10px;
+	font-family: Verdana,Arial, Helvetica, sans-serif;
+}
+
+.topnavigationArea {
+	background-image: url(./css-images/topnav_bkgd.jpg);
+	background-repeat:repeat-x;
+	background-color: #436d9c;
+}
+.topnavigationArea .container {
+	background-image: url(./css-images/topnav_bkgd.jpg);
+	background-repeat:repeat-x;
+	background-color: #436d9c;
+	width: 980px;
+}
+
+.topnavigationgroup {
+	margin: 0px;
+	float: right;
+	padding-right: 1px;
+}
+.topnavigationgroup ul {
+	margin: 0px;
+}
+
+.topnavigationitem {
+	max-width: 167px;
+	margin-left: 0px;
+	padding-left: 10px;
+	padding-top: 9px;
+	padding-right: 10px;
+	padding-bottom: 9px;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-style: none;
+	border-right-width: 1px;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	float: left;
+}
+
+.menu {
+    background-color:#666666;
+    background-image:  url(./css-images/topnav_bkgd.jpg) repeat-x center top;
+    height: 40px;
+}
+.iceMnuBarItem.menu-itemItem {
+    font-family: Arial;
+    font-size: 18px;
+    
+    
+    color:#003399;
+  
+    background-repeat: repeat-x;
+    padding-right: 12px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    height: 25px;
+    margin-right: 3px;
+}
+.iceMnuBarItemLabel.menu-itemItemLabel {
+    color: #cfcfcf;
+}
+
+
+#toolbar{padding:8px;
+background-color:#cdcdcd;
+font-size:11px;height:13px}
+#toolbar a:link,
+#toolbar a:visited
+{color:black;text-decoration:none}
+#toolbar a:hover{text-decoration:underline}
+
+

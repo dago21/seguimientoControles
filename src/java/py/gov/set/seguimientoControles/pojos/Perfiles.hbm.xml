@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/09/2017 09:21:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="py.gov.set.seguimientoControles.pojos.Perfiles" table="perfiles" schema="public" optimistic-lock="version">
+        <id name="idPerfil" type="int">
+            <column name="id_perfil" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="20" />
+        </property>
+        <property name="activo" type="java.lang.Character">
+            <column name="activo" length="1" />
+        </property>
+        <set name="usuarioPerfils" table="usuario_perfil" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_perfil" not-null="true" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.UsuarioPerfil" />
+        </set>
+        <set name="aplicacionesPerfileses" table="aplicaciones_perfiles" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_perfil" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.AplicacionesPerfiles" />
+        </set>
+    </class>
+</hibernate-mapping>

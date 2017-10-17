@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/09/2017 09:21:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="py.gov.set.seguimientoControles.pojos.Usuarios" table="usuarios" schema="public" optimistic-lock="version">
+        <id name="idUsuario" type="string">
+            <column name="id_usuario" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="nroDocumento" type="java.lang.Integer">
+            <column name="nro_documento" />
+        </property>
+        <property name="pass" type="string">
+            <column name="pass" length="50" />
+        </property>
+        <property name="activo" type="string">
+            <column name="activo" length="1" />
+        </property>
+        <set name="feriadoses" table="feriados" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuario_bitacora" length="10" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.Feriados" />
+        </set>
+        <set name="usuarioPerfils" table="usuario_perfil" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" length="10" not-null="true" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.UsuarioPerfil" />
+        </set>
+    </class>
+</hibernate-mapping>

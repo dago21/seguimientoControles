@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ice="http://www.icesoft.com/icefaces/component"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+       xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <!--<h:outputStylesheet library="css" name="#{request.contextPath}/css/style.css"/>
+        <title>Seguimiento de Controles</title>-->
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <ice:outputStyle href="/recursos/css/iceStyle.css"/>
+        <ice:outputStyle href="/recursos/css/style.css"/>
+
+        <title>Seguimiento de Controles</title>
+
+        <script type="text/javascript">
+            function enter(elementId1, elementId2, event) {
+                var evt= (evt) ? evt : ((event) ? event: null);
+                if (evt.keyCode==13) {
+                    setFocus('');
+                    iceSubmitPartial(document.getElementById(elementId1), 
+                    document.getElementById(elementId2), event);
+                }
+            }
+        </script>
+        
+        
+    </h:head>
+    <h:body>
+        <table class="header" width="300" align="center">
+            <tr>
+                <td align="right">
+                    <h:form>
+                        <ace:menuButton   value="#{sessionScope.
+                                                   SPRING_SECURITY_LAST_USERNAME}"
+                                          style="color: black;
+                                          font-weight: bold;"
+                                          rendered="#{ not empty sessionScope.
+                                                       SPRING_SECURITY_LAST_USERNAME}">
+
+                            <ace:menuItem value="Home" icon="ui-icon ui-icon-home" action ="#{userMenu.home()}"/>
+                            <ace:menuItem value="Cerrar sesion" action="#{userMenu.logout()}" icon="ui-icon ui-icon-close"/>
+                        </ace:menuButton>
+                        <br/>
+
+                    
+                    </h:form>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h:form>
+                        <ui:insert name="menu"></ui:insert>
+                    </h:form>
+                </td>
+            </tr>
+        </table>
+        
+        <!-- cuerpo -->
+        
+        
+        <div class="container"> 
+            <div align="center" >
+                <div id="header" align="left">
+                    <div class="content">
+                        <br></br>
+                        <h:form>
+                            <div class="page">
+                            </div>
+                        </h:form>
+                        <div class="content">
+                            <ui:insert name="content"></ui:insert>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </h:body>
+</html>

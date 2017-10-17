@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/09/2017 09:21:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="py.gov.set.seguimientoControles.pojos.DptoOperativo" table="dpto_operativo" schema="public" optimistic-lock="version">
+        <id name="idDpto" type="int">
+            <column name="id_dpto" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" />
+        </property>
+        <property name="sigla" type="string">
+            <column name="sigla" length="10" />
+        </property>
+        <set name="funcionarioses" table="funcionarios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="dpto" not-null="true" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.Funcionarios" />
+        </set>
+        <set name="procesoCabeceras" table="proceso_cabecera" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="dpto_operativo" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.ProcesoCabecera" />
+        </set>
+    </class>
+</hibernate-mapping>

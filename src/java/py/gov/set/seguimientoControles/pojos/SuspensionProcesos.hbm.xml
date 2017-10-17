@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/09/2017 09:21:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="py.gov.set.seguimientoControles.pojos.SuspensionProcesos" table="suspension_procesos" schema="public" optimistic-lock="version">
+        <id name="idSuspension" type="int">
+            <column name="id_suspension" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="procesoCabecera" class="py.gov.set.seguimientoControles.pojos.ProcesoCabecera" fetch="select">
+            <column name="nro_proceso" not-null="true" />
+        </many-to-one>
+        <property name="fechaDesde" type="date">
+            <column name="fecha_desde" length="13" />
+        </property>
+        <property name="fechaHasta" type="date">
+            <column name="fecha_hasta" length="13" />
+        </property>
+        <property name="cantidadDias" type="java.lang.Integer">
+            <column name="cantidad_dias" />
+        </property>
+    </class>
+</hibernate-mapping>

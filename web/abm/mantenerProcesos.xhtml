@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ice="http://www.icesoft.com/icefaces/component"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="/index.xhtml">
+            <ui:define name="content">
+                <table>
+                    <tr>
+                        <!-- Menu izquierdo -->
+                        <td width="15%" valign="top">
+                            <ace:submenu label="Opciones" id="procesosOptions">
+                                <ace:menuItem id="save" value="Registrar Proceso"
+                                              icon="ui-icon"
+                                              url="">
+                                </ace:menuItem>
+                            </ace:submenu>
+                        </td>
+
+                        <!-- Cuerpo principal -->
+
+                        <td width="1000px">
+                            <h:form>
+                                <ace:panel header="Datos del Proceso">
+
+                                    <ice:panelGrid columns="2">
+                                        <ice:outputLabel value="Tipo de Proceso"/>
+                                        <ice:selectOneMenu value="#{proceso.selectedTipoControl}">
+                                            <f:selectItems value="#{proceso.tipoControlList}"/>
+                                        </ice:selectOneMenu>
+                                        <ice:outputLabel value="Nro. de Proceso"/>
+                                        <ice:inputText value="#{proceso.nroProceso}"/>
+                                        <ice:outputLabel value="Fecha de asignación"/>
+                                        <ace:maskedEntry value="#{proceso.selectedDate}" mask="99/99/9999"/>
+                                        <ice:outputLabel value="Nro. de Orden"/>
+                                        <ice:inputText value="#{proceso.nroProceso}"/>
+                                        <ice:outputLabel value="Departamento Operativo"/>
+                                        <ice:selectOneMenu value="#{proceso.selectedDpto}">
+                                            <f:selectItems value="#{proceso.dptoList}"/>
+                                        </ice:selectOneMenu>
+                                    </ice:panelGrid>
+                                </ace:panel> 
+                                <ace:panel header="Datos del Contribuyente">
+                                    <ice:panelGrid columns="2">
+                                        <ice:outputLabel value="RUC"/>
+                                        <ice:inputText value="#{proceso.ruc}"/>
+                                        <ice:outputLabel value="Nombre/Razón Social"/>
+                                        <ice:inputText value="#{proceso.razonSocial}"/>
+                                        <ice:outputLabel value="Categoría"/>
+                                        <ice:selectOneMenu value="#{proceso.selectedCategoria}">
+                                            <f:selectItems value="#{proceso.categ}"/>
+                                        </ice:selectOneMenu>
+                                        <ice:outputLabel value="Actividad Económica"/>
+                                        <ice:inputText value="#{proceso.actEconomica}"/>
+                                        <h:commandButton value="Registrar Proceso" action="#{proceso.crearProceso()}"/>
+                                    </ice:panelGrid>
+                                </ace:panel>
+                                
+                            </h:form>
+                            <ace:panel header="Periodos Fiscales a controlar">
+                                <h:form>
+                                    <ice:panelGrid columns="2">
+                                        <ice:outputLabel value="Obligación"/>
+                                        <ice:selectOneMenu value="#{proceso.selectedTax}">
+                                            <f:selectItems value="#{proceso.taxList}"/>
+                                        </ice:selectOneMenu>
+
+                                        <ice:outputLabel value="Periodo"/>
+                                        <ace:maskedEntry value="#{proceso.periodo}" mask="99/99/9999"/>
+                                        <h:commandButton value="Agregar" action="#{proceso.agregarPeriodo()}"/>
+
+                                    </ice:panelGrid>
+
+                                    <ace:dataTable id="obligaciones" value="#{proceso.taxSelectedList}" var="tax"
+                                                   paginator="true" paginatorPosition="bottom" rows="5">
+                                        <ace:column headerText="Cod. de Obligación" sortBy="#{tax.codObligacion}">
+                                            <h:outputText value="#{tax.codObligacion}"/>
+                                        </ace:column>
+                                        <ace:column headerText="Obligación" sortBy="#{tax.nombreObligacion}">
+                                            <h:outputText value="#{tax.nombreObligacion}"/>
+                                        </ace:column>
+                                        <ace:column headerText="Periodo" sortBy="#{tax.periodo}">
+                                            <h:outputText value="#{tax.periodo}"/>
+                                        </ace:column>
+                                    </ace:dataTable>
+
+
+                                </h:form>
+                            </ace:panel>
+
+                        </td>
+                    </tr>
+                </table>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/09/2017 09:21:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="py.gov.set.seguimientoControles.pojos.UsuarioPerfil" table="usuario_perfil" schema="public" optimistic-lock="version">
+        <composite-id name="id" class="py.gov.set.seguimientoControles.pojos.UsuarioPerfilId">
+            <key-property name="idUsuario" type="string">
+                <column name="id_usuario" length="10" />
+            </key-property>
+            <key-property name="idPerfil" type="int">
+                <column name="id_perfil" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perfiles" class="py.gov.set.seguimientoControles.pojos.Perfiles" update="false" insert="false" fetch="select">
+            <column name="id_perfil" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarios" class="py.gov.set.seguimientoControles.pojos.Usuarios" update="false" insert="false" fetch="select">
+            <column name="id_usuario" length="10" not-null="true" />
+        </many-to-one>
+        <property name="fechaDesde" type="date">
+            <column name="fecha_desde" length="13" />
+        </property>
+        <property name="fechaHasta" type="date">
+            <column name="fecha_hasta" length="13" />
+        </property>
+    </class>
+</hibernate-mapping>

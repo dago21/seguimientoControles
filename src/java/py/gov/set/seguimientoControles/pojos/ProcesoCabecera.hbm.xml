@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/09/2017 09:21:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="py.gov.set.seguimientoControles.pojos.ProcesoCabecera" table="proceso_cabecera" schema="public" optimistic-lock="version">
+        <id name="nroProceso" type="int">
+            <column name="nro_proceso" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="dptoOperativo" class="py.gov.set.seguimientoControles.pojos.DptoOperativo" fetch="select">
+            <column name="dpto_operativo" />
+        </many-to-one>
+        <many-to-one name="tipoControl" class="py.gov.set.seguimientoControles.pojos.TipoControl" fetch="select">
+            <column name="tipo_control" not-null="true" />
+        </many-to-one>
+        <property name="ruc" type="string">
+            <column name="ruc" length="10" not-null="true" />
+        </property>
+        <property name="razonSocial" type="string">
+            <column name="razon_social" length="50" not-null="true" />
+        </property>
+        <property name="origen" type="string">
+            <column name="origen" length="50" />
+        </property>
+        <property name="fuente" type="string">
+            <column name="fuente" length="30" />
+        </property>
+        <property name="nroOrden" type="string">
+            <column name="nro_orden" length="20" />
+        </property>
+        <property name="fechaAsignacion" type="date">
+            <column name="fecha_asignacion" length="13" />
+        </property>
+        <property name="fechaNotificacion" type="date">
+            <column name="fecha_notificacion" length="13" />
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="13" />
+        </property>
+        <property name="fechaInforme" type="date">
+            <column name="fecha_informe" length="13" />
+        </property>
+        <property name="codPlan" type="string">
+            <column name="cod_plan" length="15" />
+        </property>
+        <property name="estadoProceso" type="string">
+            <column name="estado_proceso" length="30" />
+        </property>
+        <property name="resultadoProceso" type="string">
+            <column name="resultado_proceso" length="30" />
+        </property>
+        <set name="procesoActuanteses" table="proceso_actuantes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nro_proceso" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.ProcesoActuantes" />
+        </set>
+        <set name="procesoPeriodoses" table="proceso_periodos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nro_proceso" not-null="true" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.ProcesoPeriodos" />
+        </set>
+        <set name="procesoDeterminados" table="proceso_determinado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nro_proceso" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.ProcesoDeterminado" />
+        </set>
+        <set name="suspensionProcesoses" table="suspension_procesos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nro_proceso" not-null="true" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.SuspensionProcesos" />
+        </set>
+    </class>
+</hibernate-mapping>

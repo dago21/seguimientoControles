@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/09/2017 09:21:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="py.gov.set.seguimientoControles.pojos.TipoControl" table="tipo_control" schema="public" optimistic-lock="version">
+        <id name="idTipo" type="int">
+            <column name="id_tipo" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="30" />
+        </property>
+        <property name="plazoDias" type="java.lang.Integer">
+            <column name="plazo_dias" />
+        </property>
+        <property name="diasHabiles" type="java.lang.Character">
+            <column name="dias_habiles" length="1" />
+        </property>
+        <set name="procesoCabeceras" table="proceso_cabecera" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipo_control" not-null="true" />
+            </key>
+            <one-to-many class="py.gov.set.seguimientoControles.pojos.ProcesoCabecera" />
+        </set>
+    </class>
+</hibernate-mapping>

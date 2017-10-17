@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/09/2017 09:21:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="py.gov.set.seguimientoControles.pojos.Funcionarios" table="funcionarios" schema="public" optimistic-lock="version">
+        <composite-id name="id" class="py.gov.set.seguimientoControles.pojos.FuncionariosId">
+            <key-property name="nroDocumento" type="int">
+                <column name="nro_documento" />
+            </key-property>
+            <key-property name="dpto" type="int">
+                <column name="dpto" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="dptoOperativo" class="py.gov.set.seguimientoControles.pojos.DptoOperativo" update="false" insert="false" fetch="select">
+            <column name="dpto" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" />
+        </property>
+        <property name="primerApellido" type="string">
+            <column name="primer_apellido" length="15" />
+        </property>
+        <property name="segundoApellido" type="string">
+            <column name="segundo_apellido" length="15" />
+        </property>
+        <property name="cargo" type="string">
+            <column name="cargo" length="10" />
+        </property>
+        <property name="fechaDesde" type="date">
+            <column name="fecha_desde" length="13" />
+        </property>
+        <property name="fechaHasta" type="date">
+            <column name="fecha_hasta" length="13" />
+        </property>
+    </class>
+</hibernate-mapping>
